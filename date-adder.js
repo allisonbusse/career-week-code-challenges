@@ -15,8 +15,3 @@ function add(date, diff) {
 }
 
 module.exports = add;
-
-const newDate = new Date(1986, 7, 17, 12, 33, 22, 45);
-const diffTest = '10d';
-console.log(newDate);
-console.log(add(newDate, diffTest));
