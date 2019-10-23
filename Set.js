@@ -50,17 +50,36 @@ class Set {
 
 
   
-  // static intersection(setOne, setTwo) {
+  static intersection(setOne, setTwo) {
+    const newSet = new Set();
+    for(let i = 0; i < setOne.array.length; i++) {
+      if(setTwo.array.includes(setOne.array[i])) newSet.add(setOne.array[i]);
+    }
+    return newSet;
+  }
 
-  // }
+  static union(setOne, setTwo) {
+    const newSet = new Set();
+    for(let i = 0; i < setOne.array.length; i++) {
+      newSet.add(setOne.array[i]);
+    }
+    for(let j = 0; j < setTwo.array.length; j++) {
+      newSet.add(setTwo.array[j]);
+    }
+    return newSet;
+  }
 
-  // static union(setOne, setTwo) {
-
-  // }
-
-  // static difference(setOne, setTwo) {
-
-  // }
+  static difference(setOne, setTwo) {
+    const newSet = new Set();
+    for(let i = 0; i < setOne.array.length; i++) {
+      newSet.add(setOne.array[i]);
+    }
+    for(let j = 0; j < setTwo.array.length; j++) {
+      if(newSet.has(setTwo.array[j])) newSet.remove(setTwo.array[j]);
+      else if(!newSet.has(setTwo.array[j])) newSet.add(setTwo.array[j]);
+    }
+    return newSet;
+  }
 }
 
 module.exports = Set;

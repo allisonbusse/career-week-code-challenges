@@ -46,4 +46,22 @@ describe('Testing Set Class', () => {
     const result = set.difference(setTwo);
     expect(result.array).toEqual([5, 6, 3]);
   });
+
+  it('statically returns the intersection of two sets', () => {
+    const set = new Set([1, 2, 3]);
+    const setTwo = new Set([1, 2, 5, 6]);
+    expect(Set.intersection(set, setTwo).array).toEqual([1, 2]);
+  });
+
+  it('statically returns the union of two sets', () => {
+    const set = new Set([1, 2, 3]);
+    const setTwo = new Set([1, 2, 5, 6]);
+    expect(Set.union(set, setTwo).array).toEqual([1, 2, 3, 5, 6]);
+  });
+
+  it('statically returns the difference of two sets', () => {
+    const set = new Set([1, 2, 3]);
+    const setTwo = new Set([1, 2, 5, 6]);
+    expect(Set.difference(set, setTwo).array).toEqual([3, 5, 6]);
+  });
 });
