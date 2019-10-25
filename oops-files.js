@@ -7,7 +7,10 @@ function oopsfile(folder) {
       filenames.forEach(file => {
         return fs.readFile(`${folder}${file}`)
           .then(contents => {
-            console.log(contents.toString());
+            return fs.stat(`${folder}${file}`)
+              .then(stats => {
+                console.log(stats.mtime);
+              });
           });
       });
     });
