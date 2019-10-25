@@ -9,7 +9,7 @@ function oopsfile(folder) {
           .then(contents => {
             return fs.stat(`${folder}${file}`)
               .then(stats => {
-                console.log(stats.mtime);
+                return fs.rename(`${folder}${file}`, `${folder}${contents.toString()}-${file.slice(0, file.length - 4)}-${stats.mtime}.txt`);
               });
           });
       });
