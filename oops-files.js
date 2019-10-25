@@ -4,7 +4,13 @@ const fs = require('fs').promises;
 function oopsfile(folder) {
   return fs.readdir(folder)
     .then(filenames => {
-      console.log(filenames);
+      filenames.forEach(file => {
+        return fs.readFile(`${folder}${file}`)
+          .then(contents => {
+            console.log(contents.toString());
+          });
+      });
     });
 }
+
 oopsfile(folder);
