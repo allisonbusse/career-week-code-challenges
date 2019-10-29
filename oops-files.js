@@ -17,3 +17,5 @@ function oopsfile(folder) {
 }
 
 oopsfile(folder);
+
+module.exports = oopsfile;
